@@ -1,5 +1,5 @@
 "
-This class contains a simple test 
+This class contains tests for Counter class 
 "
 Class {
 	#name : #CounterTest,
