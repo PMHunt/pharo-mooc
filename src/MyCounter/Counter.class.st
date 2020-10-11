@@ -21,3 +21,13 @@ Counter >> count [
 Counter >> count: arg [ 
 	count := arg.
 ]
+
+{ #category : #API }
+Counter >> decrement [ 
+	count := count - 1
+]
+
+{ #category : #API }
+Counter >> increment [ 
+	count := count + 1
+]
