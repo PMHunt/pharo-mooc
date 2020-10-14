@@ -36,6 +36,31 @@ Class {
 	#category : #TinyBlog
 }
 
+{ #category : #'instance creation' }
+TBPost class >> title: aTitle text: aText [
+	^ self new 
+		title: aTitle;
+		text: aText;
+		yourself 
+]
+
+{ #category : #'instance creation' }
+TBPost class >> title: aTitle text: aText category: aCategory [
+	^ (self title: aTitle text: aText)
+		category: aCategory;
+		yourself
+]
+
+{ #category : #'instance creation' }
+TBPost class >> unclassifiedTag [
+	^ 'Unclassifed'
+]
+
+{ #category : #actions }
+TBPost >> beVisible [
+	self visible: true
+]
+
 { #category : #accessing }
 TBPost >> category [
 	^ category
@@ -54,6 +79,19 @@ TBPost >> date [
 { #category : #accessing }
 TBPost >> date: anObject [
 	date := anObject
+]
+
+{ #category : #initialization }
+TBPost >> initialize [
+	super initialize.
+	self category: (self class unclassifiedTag).
+	self date: Date today.
+	self notVisible
+]
+
+{ #category : #actions }
+TBPost >> notVisible [
+	self visible: false
 ]
 
 { #category : #accessing }
